@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Material 3 Expressive Multi-Container Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root {
+      --primary: #6750A4;
+      --on-primary: #FFFFFF;
+      --accent-grey-light: #BDBDBD;
+      --accent-grey-dark: #303030;
+      --container-radius: 1.5rem;
+      --container-padding: 2rem;
+      --container-margin: 1.5rem;
+      --transition: 0.3s;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--on-background);
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .theme-toggle {
+      margin: 2rem auto 1rem auto;
+      display: block;
+      padding: 0.7rem 2rem;
+      border: none;
+      border-radius: 999px;
+      background: var(--primary);
+      color: var(--on-primary);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background var(--transition);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .container-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--container-margin);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .m3-container {
+      background: var(--container-bg);
+      color: var(--container-fg);
+      border-radius: var(--container-radius);
+      padding: var(--container-padding);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transition: background var(--transition), color var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 180px;
+    }
+
+    .container-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .container-accent {
+      color: var(--accent-grey);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem 0.5rem;
+      }
+      .theme-toggle {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Switch to Pitch Black Theme</button>
+  <div class="container-grid">
+    <div class="m3-container">
+      <div class="container-title">Profile</div>
+      <div class="container-accent">Accent: Grey</div>
+      <p>View and edit your personal information, avatar, and preferences in this expressive container.</p>
+    </div>
+    <div class="m3-container">
+      <div class="container-title">Notifications</div>
+      <div class="container-accent">Accent: Grey</div>
+      <p>Stay updated with recent activity and alerts, styled with expressive Material 3 elements.</p>
+    </div>
+    <div class="m3-container">
+      <div class="container-title">Tasks</div>
+      <div class="container-accent">Accent: Grey</div>
+      <p>Manage your to-do list and track progress. Containers help group related content for clarity.</p>
+    </div>
+    <div class="m3-container">
+      <div class="container-title">Settings</div>
+      <div class="container-accent">Accent: Grey</div>
+      <p>Customize your experience. Material 3 Expressive brings bold shapes and dynamic color to controls.</p>
+    </div>
+  </div>
+  <script>
+    // Theme definitions
+    const themes = {
+      light: {
+        '--background': '#FFFFFF',
+        '--on-background': '#000000',
+        '--container-bg': '#F5F5F5',
+        '--container-fg': '#000000',
+        '--accent-grey': '#BDBDBD',
+        '--primary': '#6750A4',
+        '--on-primary': '#FFFFFF'
+      },
+      dark: {
+        '--background': '#000000',
+        '--on-background': '#FFFFFF',
+        '--container-bg': '#181818',
+        '--container-fg': '#FFFFFF',
+        '--accent-grey': '#303030',
+        '--primary': '#D0BCFF',
+        '--on-primary': '#000000'
+      }
+    };
+
+    let isLight = true;
+
+    function applyTheme(theme) {
+      for (const key in theme) {
+        document.documentElement.style.setProperty(key, theme[key]);
+      }
+    }
+
+    function toggleTheme() {
+      isLight = !isLight;
+      if (isLight) {
+        applyTheme(themes.light);
+        document.querySelector('.theme-toggle').textContent = 'Switch to Pitch Black Theme';
+      } else {
+        applyTheme(themes.dark);
+        document.querySelector('.theme-toggle').textContent = 'Switch to White Light Theme';
+      }
+    }
+
+    // Set initial theme
+    applyTheme(themes.light);
+  </script>
+</body>
+</html>

@@ -1,25 +1,21 @@
 :root {
-  --base-color: white;
-  --base-variant: white;
+  --primary: #FFFFFF;
+  --on-primary:#000000;
   --text-color: #000000;
-  --secondary-text: #232738;
-  --primary-color: #3a435d;
-  --accent-color: #0071ff;
-  --base-shade: rgba(0, 0, 0, 0.5);
+  --primary-container: rgb(103, 80, 164);
+  --base-shade:rgb(224, 224, 224);
 }
 .darkmode {
-  --base-color: #000000;
-  --base-variant: black;
+  --primary: #000000;
+  --on-primary: #FFFFFF;
   --text-color: #ffffff;
-  --secondary-text: #a4a5b8;
-  --primary-color: #3a435d;
-  --accent-color: #0071ff;
-  --base-shade: rgba(255, 255, 255, 0.13);
+  --primary-container:rgb(208, 188, 255);
+  --base-shade:rgb(33, 33, 33);
 }
 
 html {
   font-family: Poppins;
-  /* background-image: url('1.webp'); */
+  background-image: url('1.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -27,7 +23,7 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--base-color);
+  background-color: var(--primary);
   color: var(--text-color);
   margin: 0;
   padding: 0;
@@ -59,6 +55,13 @@ h1 {
     justify-content: center;
     align-items: center;
 }
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 30rem));
+  gap: 15px;
+  justify-content: center;
+}
+
 .align{
   text-align: start;
 }
@@ -74,7 +77,7 @@ h1 {
   width: 40px;
   padding: 0;
   border-radius: 50%;
-  background-color: var(--base-variant);
+  background-color: var(--on-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +87,7 @@ h1 {
   cursor: pointer;
 }
 #theme-switch svg{
-  fill: var(--primary-color);
+  fill: var(--primary-container);
 }
 #theme-switch svg:last-child{
   display: none;
@@ -102,13 +105,6 @@ h1 {
     width: 4.5rem;
 }
 
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 15px;
-  justify-content: center;
-  max-width: 80lvh;;
-}
 
 .card{
   margin: 0 auto;
@@ -118,7 +114,7 @@ h1 {
   max-height: 80lvh;
   padding: 2rem;
   width: 310px;
-  background:var(--base-color);
+  background:var(--primary);
   text-align: center;
   border-radius: 10px;
   position: relative;
