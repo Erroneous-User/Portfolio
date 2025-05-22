@@ -14,7 +14,7 @@
   --secondary-text: #a4a5b8;
   --primary-color: #3a435d;
   --accent-color: #0071ff;
-  --base-shade: #121212;
+  --base-shade: rgba(255, 255, 255, 0.13);
 }
 
 html {
