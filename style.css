@@ -1,21 +1,26 @@
 :root {
-  --primary: #FFFFFF;
-  --on-primary:#000000;
-  --text-color: #000000;
-  --primary-container: rgb(103, 80, 164);
-  --base-shade:rgb(224, 224, 224);
+  --background: #FFFFFF;
+  --on-background: #000000;
+  --container-bg: #F5F5F5;
+  --container-fg: #000000;
+  --accent-grey:#BDBDBD;
+  --primary: #6750A4;
+  --on-primary: #FFFFFF;
 }
 .darkmode {
-  --primary: #000000;
-  --on-primary: #FFFFFF;
-  --text-color: #ffffff;
-  --primary-container:rgb(208, 188, 255);
-  --base-shade:rgb(33, 33, 33);
+--background: #000000;
+--on-background: #FFFFFF;
+--container-bg: #181818;
+--container-fg: #FFFFFF;
+--accent-grey: #303030;
+--primary: #D0BCFF;
+--on-primary: #000000;
+
 }
 
 html {
   font-family: Poppins;
-  background-image: url('1.webp');
+  /* background-image: url('1.webp'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,8 +28,8 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--primary);
-  color: var(--text-color);
+  background-color: var(--background);
+  color: var(--on-background);
   margin: 0;
   padding: 0;
 }
@@ -35,7 +40,7 @@ h1 {
 
 .header {
     justify-content: space-between;
-    background-color: var(--base-shade);
+    background-color: var(--accent-grey);
     backdrop-filter: blur(20px);   
 }
 .center{
@@ -66,18 +71,18 @@ h1 {
   text-align: start;
 }
 .text-color{
-  color: var(--text-color);
+  color: var(--on-background);
   text-decoration: none;
 }
 .text-color:hover{
-  text-shadow: var(--secondary-text) 0px 0px 5px;
+  text-shadow: var(--container-fg) 0px 0px 5px;
 }
 #theme-switch{
   height: 40px;
   width: 40px;
   padding: 0;
   border-radius: 50%;
-  background-color: var(--on-primary);
+  background-color: var(--background);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +92,7 @@ h1 {
   cursor: pointer;
 }
 #theme-switch svg{
-  fill: var(--primary-container);
+  fill: var(--on-background);
 }
 #theme-switch svg:last-child{
   display: none;
@@ -114,7 +119,7 @@ h1 {
   max-height: 80lvh;
   padding: 2rem;
   width: 310px;
-  background:var(--primary);
+  background:var(--container-bg);
   text-align: center;
   border-radius: 10px;
   position: relative;
@@ -131,14 +136,14 @@ h1 {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+  background-image: conic-gradient(from var(--angle), var(--on-background),var(--background));
   top: 50%;
   left: 50%;
   translate: -50% -50%;
   z-index: -1;
   padding: 3px;
-  border-radius: 10px;
-  animation: 3s spin linear infinite;
+  border-radius: 15px;
+  animation: 3s spin infinite linear;
 }
 .card::before{
   filter: blur(1.5rem);
