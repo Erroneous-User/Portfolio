@@ -1,35 +1,51 @@
 :root {
   --base-color: white;
-  --base-variant: #e8e9ed;
-  --text-color: #111528;
+  --base-variant: white;
+  --text-color: #000000;
   --secondary-text: #232738;
   --primary-color: #3a435d;
   --accent-color: #0071ff;
+  --base-shade: rgba(0, 0, 0, 0.5);
 }
 .darkmode {
-  --base-color: #070b1d;
-  --base-variant: #101425;
+  --base-color: #000000;
+  --base-variant: black;
   --text-color: #ffffff;
   --secondary-text: #a4a5b8;
   --primary-color: #3a435d;
   --accent-color: #0071ff;
+  --base-shade: #121212;
 }
 
 html {
   font-family: Poppins;
+  /* background-image: url('1.webp'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 body {
   min-height: 100vh;
   background-color: var(--base-color);
   color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+    text-align: center;
 }
 
 .header {
+    justify-content: space-between;
+    background-color: var(--base-shade);
+    backdrop-filter: blur(20px);   
+}
+.center{
     display: flex;
     flex-direction: row;
     text-align: center;
-    justify-content: space-between;
     align-items: center;
 }
 .nav {
@@ -37,7 +53,22 @@ body {
     flex-direction: row;
     padding-right: 8vh;
 }
-
+.center-coloumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.align{
+  text-align: start;
+}
+.text-color{
+  color: var(--text-color);
+  text-decoration: none;
+}
+.text-color:hover{
+  text-shadow: var(--secondary-text) 0px 0px 5px;
+}
 #theme-switch{
   height: 40px;
   width: 40px;
@@ -50,6 +81,7 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
+  cursor: pointer;
 }
 #theme-switch svg{
   fill: var(--primary-color);
@@ -62,4 +94,57 @@ body {
 }
 .darkmode #theme-switch svg:last-child{
   display: block;
+}
+.sp{
+    padding-inline-start: 1rem;
+}
+.img{
+    width: 4.5rem;
+}
+
+.card{
+  margin: 0 auto;
+  max-width: 80lvh;
+  margin-top: 4rem;
+  margin-inline: 4rem;
+  max-height: 80lvh;
+  padding: 2rem;
+  width: 310px;
+  background:var(--base-color);
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card::after, .card::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+.card::before{
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
 }
