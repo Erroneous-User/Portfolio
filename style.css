@@ -68,7 +68,6 @@ body{
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding-bottom: 2rem;
 }
 .intro{
   display: flex;
@@ -79,6 +78,18 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4rem;
-  max-width: fit-content;
+  max-width: 50rem;
+  min-width: 30rem;
+}
+.contact-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }

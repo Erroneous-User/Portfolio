@@ -10,10 +10,10 @@ links.forEach(link => {
   link.addEventListener('mouseenter', () => {
     const rect = link.getBoundingClientRect();
     const parentRect = navLinks.getBoundingClientRect();
-    magicBg.style.left = (rect.left - parentRect.left - 50) + "px";
-    magicBg.style.width = rect.width + "px";
-    magicBg.style.top = (rect.top - parentRect.top) + "px";
-    magicBg.style.height = rect.height + "px";
+    magicBg.style.left = (rect.left - parentRect.left) + "px";
+    magicBg.style.width = (rect.width - 5) + "px";
+    magicBg.style.top = (rect.top - parentRect.top + 4) + "px";
+    magicBg.style.height = (rect.height - 10) + "px";
     magicBg.style.opacity = 1;
   });
   link.addEventListener('mouseleave', () => {
