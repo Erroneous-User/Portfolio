@@ -1,24 +1,22 @@
-let darkmode = localStorage.getItem('darkmode');
-const themeSwitch = document.getElementById('theme-switch');
+const navLinks = document.querySelector('.nav-links');
+const links = navLinks.querySelectorAll('a');
 
-const enableDarkmode = () => {
-  document.body.classList.add('darkmode');
-  localStorage.setItem('darkmode', 'active');
-}
+// Create the moving background element
+const magicBg = document.createElement('div');
+magicBg.className = 'magic-bg';
+navLinks.prepend(magicBg);
 
-const disableDarkmode = () => {
-  document.body.classList.remove('darkmode');
-  localStorage.setItem('darkmode', 'inactive');
-}
-
-// Default to dark mode if no preference is stored
-if (darkmode === "active" || darkmode === null) {
-  enableDarkmode();
-} else {
-  disableDarkmode();
-}
-
-themeSwitch.addEventListener("click", () => {
-  darkmode = localStorage.getItem('darkmode');
-  darkmode !== "active" ? enableDarkmode() : disableDarkmode();
+links.forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    const rect = link.getBoundingClientRect();
+    const parentRect = navLinks.getBoundingClientRect();
+    magicBg.style.left = (rect.left - parentRect.left - 50) + "px";
+    magicBg.style.width = rect.width + "px";
+    magicBg.style.top = (rect.top - parentRect.top) + "px";
+    magicBg.style.height = rect.height + "px";
+    magicBg.style.opacity = 1;
+  });
+  link.addEventListener('mouseleave', () => {
+    magicBg.style.opacity = 0;
+  });
 });

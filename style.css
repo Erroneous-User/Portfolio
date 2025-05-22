@@ -1,159 +1,84 @@
-:root {
-  --background: #FFFFFF;
-  --on-background: #000000;
-  --container-bg: #F5F5F5;
-  --container-fg: #000000;
-  --accent-grey:#BDBDBD;
-  --primary: #6750A4;
-  --on-primary: #FFFFFF;
-}
-.darkmode {
---background: #000000;
---on-background: #FFFFFF;
---container-bg: #181818;
---container-fg: #FFFFFF;
---accent-grey: #303030;
---primary: #D0BCFF;
---on-primary: #000000;
-
+:root{
+  --font-color: black;
+  --background-color: white;
+  --container-color: hsl(0, 0%, 90%);
+  /* --container-color: #111111; */
 }
 
-html {
-  font-family: Poppins;
-  /* background-image: url('1.webp'); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-body {
-  min-height: 100vh;
-  background-color: var(--background);
-  color: var(--on-background);
+body{
   margin: 0;
   padding: 0;
 }
 
-h1 {
-    text-align: center;
+.navbar-container{
+  max-height: 3rem;
+  padding-inline: 1rem;
 }
-
-.header {
-    justify-content: space-between;
-    background-color: var(--accent-grey);
-    backdrop-filter: blur(20px);   
+.navbar{
+  position: relative;
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 3rem;
 }
-.center{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
+.navbar img{
+  max-width: 3rem;
+  opacity: 0.8;
 }
-.nav {
-    display: flex;
-    flex-direction: row;
-    padding-right: 8vh;
-}
-.center-coloumn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 30rem));
-  gap: 15px;
-  justify-content: center;
-}
-
-.align{
-  text-align: start;
-}
-.text-color{
-  color: var(--on-background);
+.navbar a {
+  position: relative;
+  z-index: 1;
+  color: #222;
   text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  transition: color 0.2s;
 }
-.text-color:hover{
-  text-shadow: var(--container-fg) 0px 0px 5px;
+
+.magic-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  background: var(--background-color);
+  border-radius: 2rem;
+  z-index: 0;
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+  opacity: 0.08;
 }
-#theme-switch{
-  height: 40px;
-  width: 40px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: var(--background);
+.nav-links {
+  background: var(--container-color);
+  min-width: fit-content;
+  border: solid 1px var(--font-color);
+  padding-block: 0rem;
+  padding-inline: .5rem;
+  border-radius: 15rem;
+  display: flex;
+  position: relative;
+  gap: 1rem;
+}
+
+.intro-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+.intro{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: larger;
+  height: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-}
-#theme-switch svg{
-  fill: var(--on-background);
-}
-#theme-switch svg:last-child{
-  display: none;
-}
-.darkmode #theme-switch svg:first-child{
-  display: none;
-}
-.darkmode #theme-switch svg:last-child{
-  display: block;
-}
-.sp{
-    padding-inline-start: 1rem;
-}
-.img{
-    width: 4.5rem;
-}
-
-
-.card{
-  margin: 0 auto;
-  max-width: 80lvh;
-  margin-top: 4rem;
-  margin-inline: 4rem;
-  max-height: 80lvh;
-  padding: 2rem;
-  width: 310px;
-  background:var(--container-bg);
-  text-align: center;
-  border-radius: 10px;
-  position: relative;
-}
-
-@property --angle{
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-.card::after, .card::before{
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-image: conic-gradient(from var(--angle), var(--on-background),var(--background));
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  z-index: -1;
-  padding: 3px;
-  border-radius: 15px;
-  animation: 3s spin infinite linear;
-}
-.card::before{
-  filter: blur(1.5rem);
-  opacity: 0.5;
-}
-@keyframes spin{
-  from{
-    --angle: 0deg;
-  }
-  to{
-    --angle: 360deg;
-  }
+  margin: 4rem;
+  max-width: fit-content;
 }
