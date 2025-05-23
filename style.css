@@ -137,5 +137,26 @@ body{
   border-radius: 1rem;
 }
 .screenshot h2{
+  margin: .5rem 0rem 0rem 0rem;
+  font-size: 1.5rem;
+}
+.screenshot p{
+  margin: .5rem 0rem 0rem 0rem;
+  font-size: .9rem;
+  text-align: center;
+}
+.project-language{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+.project-language div{
+  width: 1.5rem;
+  height: 1.5rem;
+  background: white;
+  border: solid 1px var(--font-color);
+  border-radius: 25rem;
   position: relative;
+  right: 10rem;
+  bottom: .5rem;
 }
