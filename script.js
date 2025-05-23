@@ -11,12 +11,17 @@ links.forEach(link => {
     const rect = link.getBoundingClientRect();
     const parentRect = navLinks.getBoundingClientRect();
     magicBg.style.left = (rect.left - parentRect.left) + "px";
-    magicBg.style.width = (rect.width - 5) + "px";
-    magicBg.style.top = (rect.top - parentRect.top + 4) + "px";
-    magicBg.style.height = (rect.height - 10) + "px";
+    magicBg.style.width = rect.width + "px";
+    magicBg.style.top = (rect.top - parentRect.top) + "px";
+    magicBg.style.height = rect.height + "px";
     magicBg.style.opacity = 1;
   });
   link.addEventListener('mouseleave', () => {
     magicBg.style.opacity = 0;
   });
+});
+
+const navbarMenu = document.querySelector('.navbar-menu');
+navbarMenu.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
 });
