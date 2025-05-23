@@ -98,16 +98,15 @@ body{
 
 .project {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  max-width: 90lvh;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  width: 80%;
   justify-items: center;
   align-items: start;
 }
 
 .project-card {
-  width: 100%;
-  max-width: 15rem;
-  height: 14rem;
+  width: 25rem;
+  height: 20rem;
   background: var(--container-color);
   color: var(--font-color);
   border-radius: 1rem;
