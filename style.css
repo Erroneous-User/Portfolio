@@ -244,6 +244,10 @@ body {
 .project-link:hover .card-bg-gradient {
   opacity: 1;
 }
+.card-bg-gradient {
+  pointer-events: none;
+}
+
 .card-image {
   background-image: url('https://via.placeholder.com/400x300?text=Project');
   background-size: cover;
@@ -254,6 +258,7 @@ body {
   height: 180px;
   width: 100%;
   overflow: hidden;
+  
 }
 .card-content {
   margin-top: 1.2rem;

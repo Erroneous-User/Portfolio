@@ -25,3 +25,23 @@ const navbarMenu = document.querySelector('.navbar-menu');
 navbarMenu.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Select all project cards
+  const projectCards = document.querySelectorAll('.project-card');
+
+  projectCards.forEach(card => {
+    const video = card.querySelector('video');
+    if (!video) return; // Skip if no video
+
+    card.addEventListener('mouseenter', () => {
+      video.play();
+    });
+
+    card.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+});
