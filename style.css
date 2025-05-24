@@ -26,7 +26,6 @@ body {
   box-shadow: none;
   backdrop-filter: blur(2px);
   max-height: 3rem;
-  padding-inline: 1rem;
 
 }
 .navbar{
@@ -66,15 +65,22 @@ body {
   pointer-events: none;
   opacity: 0;
 }
+
 .nav-links {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* Keep your other styles */
+  display: flex;
   background: transparent;
   min-width: fit-content;
   border: solid 1px var(--font-color);
   padding-block: 0rem;
   padding-inline: .5rem;
   border-radius: 15rem;
-  display: flex;
-  position: relative;
+}
+
 }
 .navbar-menu{
   margin-right: 4rem;
@@ -105,15 +111,15 @@ body {
   flex-direction: row;
 }
 .contact-container .img1{
-  background-image: url('github.png');
+  background-image: url('images/github.png');
   background-size: cover;
 }
 .contact-container .img2{
-  background-image: url('linkedin.png');
+  background-image: url('images/linkedin.png');
   background-size: cover;
 }
 .contact-container .img3{
-  background-image: url('whatsapp.png');
+  background-image: url('images/whatsapp.png');
   background-size: cover;
 }
 /* Hamburger menu for mobile */
@@ -285,8 +291,8 @@ body {
   display: flex;
   align-items: center;
   position: absolute;
-  bottom: -38px;
-  left: 0;
+  top: 90px;
+  left: 20px;
 }
 .icon-circle {
   border: 2px solid #000000cc;
@@ -315,8 +321,8 @@ body {
   align-items: center;
   border-radius: 9999px;
   position: absolute;
-  bottom: 12px;
-  right: 20px;
+  top: 15px;
+  left: 18px;
   padding: 2px 8px;
   box-shadow: 0 1px 4px #0001;
 }
@@ -329,6 +335,15 @@ body {
   animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite;
   display: inline-block;
 }
+.red-dot {
+  width: 8px;
+  height: 8px;
+  background: #b91010; /* green for online */
+  border-radius: 50%;
+  margin-left: 6px;
+  animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite;
+  display: inline-block;
+} 
 @keyframes pulse {
   50% { opacity: .5; }
 }
@@ -372,7 +387,8 @@ body {
     padding: 0.4rem;
   }
   .card-image {
-    height: 80px;
+    height:fit-content;
+    width: fit-content;
   }
   .card-title {
     font-size: 1rem;
