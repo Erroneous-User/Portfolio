@@ -104,6 +104,18 @@ body {
   justify-content: center;
   flex-direction: row;
 }
+.contact-container .img1{
+  background-image: url('github.png');
+  background-size: cover;
+}
+.contact-container .img2{
+  background-image: url('linkedin.png');
+  background-size: cover;
+}
+.contact-container .img3{
+  background-image: url('whatsapp.png');
+  background-size: cover;
+}
 /* Hamburger menu for mobile */
 .navbar-menu {
   display: none;
