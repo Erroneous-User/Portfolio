@@ -393,6 +393,13 @@ body {
   .card-title {
     font-size: 1rem;
   }
+  .intro-container{
+  display: flex;
+}
+  .intro{
+    display: flex;
+    width: 5rem;
+  }
 }
 @media (max-width: 600px) {
   .card-icons { display: none; }
