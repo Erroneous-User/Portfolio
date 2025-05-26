@@ -1002,3 +1002,10 @@ body {
     align-items: flex-start;
   }
 }
+
+@media (max-width: 640px) {
+  .footer {
+    flex-direction: row;
+    align-items: center;
+  }
+}
