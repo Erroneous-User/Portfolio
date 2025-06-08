@@ -1,6 +1,21 @@
 const navLinks = document.querySelector('.nav-links');
 const links = navLinks.querySelectorAll('a');
 
+// Example: Lazy load videos when in viewport
+const videos = document.querySelectorAll('video');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.load();
+    } else {
+      entry.target.pause();
+      entry.target.currentTime = 0;
+    }
+  });
+});
+videos.forEach(video => observer.observe(video));
+
+
 // Create the moving background element
 const magicBg = document.createElement('div');
 magicBg.className = 'magic-bg';

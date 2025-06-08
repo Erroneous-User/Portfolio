@@ -596,6 +596,7 @@ body {
   filter: grayscale(1) saturate(0.5);
   transition: filter 0.3s;
   min-height: 5rem;
+  max-height: 12rem; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1086,5 +1087,15 @@ body {
   .footer {
     flex-direction: row;
     align-items: center;
+  }
+}
+@media (max-width: 550px) {
+  .intro h1{
+    width: 29rem; 
+  }
+}
+@media (max-width: 1660px) {
+  .stack-icon {
+    max-height:8rem; 
   }
 }
