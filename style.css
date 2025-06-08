@@ -1,8 +1,80 @@
-:root{
+:root {
   --font-color: black;
   --background-color: white;
   --container-color: hsl(0, 0%, 90%);
+  --opacity: 0.5;
+  --shade2:#d4d4d4;
+  --shade1: #f6f6f6;
 }
+
+/* ====== DARK MODE VARIABLES ====== */
+body.dark-mode {
+  --font-color: #f3f3f3;
+  --background-color: #18181b;
+  --container-color: #23232a;
+  --opacity: 0.2;
+  --shade2:rgb(29, 26, 26);
+  --shade1: rgb(20, 20, 20);
+}
+
+/* ====== DARK MODE BUTTON ====== */
+.dark-mode-btn {
+  position: fixed;
+  top: rem;
+  right: 1.5rem;
+  z-index: 999;
+  background: var(--container-color);
+  color: var(--font-color);
+  border: 1.5px solid var(--font-color);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0002;
+  transition: background 0.25s, color 0.25s, border 0.25s;
+  font-size: 1.3rem;
+  outline: none;
+}
+.dark-mode-toggle:hover {
+  background: var(--font-color);
+  color: var(--background-color);
+  border-color: var(--font-color);
+}
+body.dark-mode .dark-mode-toggle {
+  background: var(--container-color);
+  color: var(--font-color);
+  border: 1.5px solid var(--font-color);
+}
+
+/* ====== BASE & LAYOUT ====== */
+
+body {
+  font-family: IBMmedium, ui-sans-serif, system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--font-color);
+  padding-top: 3.5rem;
+  background: var(--background-color);
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="182" height="182" viewBox="0 0 182 182"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>') repeat;
+  opacity: var(--opacity); /* adjust for subtlety */
+  z-index: -1;
+  pointer-events: none; /* ensures clicks go through */
+}
+body {
+  position: relative;
+  z-index: 1;
+}
+/* ...rest of your CSS remains unchanged... */
+
 @font-face {
     font-family: 'IBMlight';
     src: url('fonts/IBMlight.ttf') format('truetype');
@@ -18,18 +90,20 @@
     font-family: 'IBMmedium';
     src: url('fonts/IBMmedium.ttf') format('truetype');
 }
-/* ====== BASE & LAYOUT ====== */
-body {
-  background: #f3f4f6;
-  font-family: IBMmedium, ui-sans-serif, system-ui, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: var(--font-color);
-  padding-top: 3.5rem;
-  
-}
 
 /* ====== NAVBAR ====== */
+.nav-links::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="182" height="182" viewBox="0 0 182 182"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>'); repeat;
+  opacity: .3;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 15rem;
+
+}
 .navbar-container{
   position: fixed;
   top: 0;
@@ -94,7 +168,9 @@ body {
   padding-inline: .5rem;
   border-radius: 15rem;
 }
-
+.nav-links a{
+  color: var(--font-color);
+}
 .navbar-menu{
   margin-right: 4rem;
 }
@@ -276,7 +352,7 @@ body {
 .card-bg-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #f6f6f6, #d4d4d4);
+  background: linear-gradient(135deg, var(--shade1), var(--shade2));
   opacity: 0;
   z-index: -10;
   border-radius: 1rem;
@@ -853,6 +929,9 @@ body {
   position: absolute;
   top: 0.1rem;
   right: 0.2rem;
+}
+.contact-send-btn{
+  color: var(--font-color);
 }
 
 /* ====== CONTACT RESPONSIVE ====== */

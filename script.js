@@ -45,3 +45,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+const darkModeBtn = document.getElementById('darkModeToggle');
+const body = document.body;
+
+// Load preference from localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark-mode');
+} else if (localStorage.getItem('theme') === 'light') {
+  body.classList.remove('dark-mode');
+} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // If no preference, use system
+  body.classList.add('dark-mode');
+}
+
+darkModeBtn.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
