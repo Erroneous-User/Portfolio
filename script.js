@@ -1,25 +1,40 @@
-const navLinks = document.querySelector('.nav-links');
-const links = navLinks.querySelectorAll('a');
+// script.js
 
-// Example: Lazy load videos when in viewport
-const videos = document.querySelectorAll('video');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.load();
-    } else {
-      entry.target.pause();
-      entry.target.currentTime = 0;
-    }
-  });
+// Dark mode toggle
+const darkModeToggle = document.getElementById('darkModeToggle');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const userPref = localStorage.getItem('theme');
+
+if (userPref === 'dark' || (!userPref && prefersDark)) {
+  document.body.classList.add('dark-mode');
+}
+
+darkModeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
-videos.forEach(video => observer.observe(video));
 
+// Responsive navbar toggle
+const navbarMenu = document.getElementById('navbarMenu');
+const navLinks = document.getElementById('navLinks');
+
+navbarMenu.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+// Optional: Pause/play videos on hover for project cards
+document.querySelectorAll('.project-card video').forEach(video => {
+  video.parentElement.addEventListener('mouseenter', () => video.play());
+  video.parentElement.addEventListener('mouseleave', () => video.pause());
+});
+
+// Magic background for navbar links
+const links = navLinks.querySelectorAll('a'); // Get all anchor tags within navLinks
 
 // Create the moving background element
 const magicBg = document.createElement('div');
 magicBg.className = 'magic-bg';
-navLinks.prepend(magicBg);
+navLinks.prepend(magicBg); // Prepend so it sits behind the links visually
 
 links.forEach(link => {
   link.addEventListener('mouseenter', () => {
@@ -27,58 +42,11 @@ links.forEach(link => {
     const parentRect = navLinks.getBoundingClientRect();
     magicBg.style.left = (rect.left - parentRect.left) + "px";
     magicBg.style.width = rect.width + "px";
-    magicBg.style.top = (rect.top - parentRect.top) + "px";
+    magicBg.style.top = (rect.top - parentRect.top) + "px"; // Ensure top is calculated correctly
     magicBg.style.height = rect.height + "px";
     magicBg.style.opacity = 1;
   });
   link.addEventListener('mouseleave', () => {
     magicBg.style.opacity = 0;
   });
-});
-
-const navbarMenu = document.querySelector('.navbar-menu');
-navbarMenu.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  // Select all project cards
-  const projectCards = document.querySelectorAll('.project-card');
-
-  projectCards.forEach(card => {
-    const video = card.querySelector('video');
-    if (!video) return; // Skip if no video
-
-    card.addEventListener('mouseenter', () => {
-      video.play();
-    });
-
-    card.addEventListener('mouseleave', () => {
-      video.pause();
-      video.currentTime = 0;
-    });
-  });
-});
-
-const darkModeBtn = document.getElementById('darkModeToggle');
-const body = document.body;
-
-// Load preference from localStorage
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark-mode');
-} else if (localStorage.getItem('theme') === 'light') {
-  body.classList.remove('dark-mode');
-} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  // If no preference, use system
-  body.classList.add('dark-mode');
-}
-
-darkModeBtn.addEventListener('click', () => {
-  body.classList.toggle('dark-mode');
-  if (body.classList.contains('dark-mode')) {
-    localStorage.setItem('theme', 'dark');
-  } else {
-    localStorage.setItem('theme', 'light');
-  }
 });

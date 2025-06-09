@@ -1,0 +1,162 @@
+/* animations.css */
+
+/* Keyframe Animations */
+
+/* Fade In animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px); /* Increased translateY to make it more obvious */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide In from Left animation */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px); /* Increased translateX for stronger effect */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide In from Right animation */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px); /* Increased translateX for stronger effect */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Pulse animation for status dots */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.15); /* Slightly increased scale for more noticeable pulse */
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Pop In animation for elements appearing */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.7); /* Reduced initial scale for a more pronounced pop */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Navbar slide down on load */
+@keyframes navSlideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Hover effect for buttons and cards - Lift and Shadow */
+@keyframes hoverLift {
+    from {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    to {
+        transform: translateY(-8px); /* Increased lift */
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Increased shadow for depth */
+    }
+}
+
+/* Typing effect for text */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--font-color); } /* Uses dynamic font color for caret */
+}
+
+/* General Animation Classes */
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards; /* Increased duration for smoother visibility */
+    opacity: 0; /* Ensures element is hidden before animation starts */
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 1s ease-out forwards; /* Increased duration */
+    opacity: 0;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 1s ease-out forwards; /* Increased duration */
+    opacity: 0;
+}
+
+.animate-pop-in {
+    animation: popIn 0.7s ease-out forwards; /* Slightly increased duration */
+    opacity: 0;
+}
+
+.animate-nav-slide-down {
+    animation: navSlideDown 0.7s ease-out forwards; /* Slightly increased duration */
+    opacity: 0;
+}
+
+/* Typing effect specific styles */
+.typing-effect {
+    overflow: hidden; /* Ensures the text is hidden until typed */
+    white-space: nowrap; /* Prevents text from wrapping */
+    border-right: .15em solid var(--font-color); /* The caret, using font-color for better theming */
+    animation:
+        typing 3.5s steps(40, end) forwards, /* Added forwards to keep final state */
+        blink-caret .75s step-end infinite;
+}
+
+/* Hover Animations */
+.hover-lift:hover {
+    animation: hoverLift 0.3s forwards; /* Applies keyframe animation on hover */
+}
+.hover-lift {
+    transition: all 0.3s ease-out; /* Smooth reset when hover ends */
+}
+
+/* New hover for icons - Pop effect */
+.hover-pop:hover {
+    animation: popIn 0.3s forwards; /* Reuses popIn keyframe for a hover pop */
+}
+.hover-pop {
+    transition: transform 0.3s ease-out; /* Smooth reset for pop */
+}
+
+/* Hover grayscale to color effect for stack icons */
+.hover-grayscale-to-color:hover {
+    filter: none; /* Removes grayscale on hover */
+}
+.hover-grayscale-to-color {
+    transition: filter 0.5s ease-out; /* Smooth transition for grayscale effect */
+}

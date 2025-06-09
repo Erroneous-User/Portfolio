@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
 <body>
     <header class="navbar-container">
@@ -12,25 +13,23 @@
         <a href="#home" class="navbar-logo">
         <img src="Images/ErroneousUser.png" alt="Logo">
         </a>
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="#stack">Stack</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
         </div>
-        <!-- Dark mode toggle button -->
         <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
         <span class="dark-mode-icon"></span>
         </button>
-        <button class="navbar-menu" aria-label="Open menu">
+        <button class="navbar-menu" aria-label="Open menu" id="navbarMenu">
         <span></span>
         <span></span>
         <span></span>
         </button>
     </nav>
     </header>
-
     <div class="intro-container" id="home">
         <div class="intro">
             <h1>I am Adarsh Kumar Sharma,<br>BCA Graduate,<br>Fresher</h1>
@@ -41,23 +40,27 @@
         <a href="cv/cv.pdf" class="btn-secondary">Open CV</a>
         </div>    
     </div>
-    <div class="contact-container" >
-    
-        <a href="https://github.com/Erroneous-User" class="icon-circle img1"></a>
-        <a href="" class="icon-circle img2"></a>
-        <a href="https://wa.me/+918709674575" class="icon-circle img3"></a>
-        
+    <div class="contact-container">
+            <div class="contact-icons">
+                <a href="https://github.com/Erroneous-User" class="icon-circle img1"></a>
+            </div>
+            <div class="contact-icons">
+                <a href="" class="icon-circle img2"></a>
+            </div>
+            <div class="contact-icons">
+                <a href="https://wa.me/+918709674575" class="icon-circle img3"></a>
+            </div>
     </div>
     <div class="project-container" id="projects">
          <h1>My Projects</h1>
          <ul class="project-list">
             <li class="project-card">
-            <a href="#"
+            <a href="https://erroneous-user.github.io/3d-Parallax/"
                 target="_blank"
                 class="project-link">
                 <span class="card-bg-gradient"></span>
-                <div class="card-image" id="videoContainer">
-                    <video id="hoverVideo" width="400" loop muted>
+                <div class="card-image">
+                    <video loop muted>
                         <source src="Video/parallax.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -67,16 +70,16 @@
                 <br>
                 <span class="card-desc">The inspiration and resources for this project were provided by True Coder, with some minor modifications made along the way.</span>
                 <div class="card-icons">
-                    <div class="icon-circle" style="transform:translateX(-2px)">
+                    <div class="icon-circle">
                     <img src="Images/html.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-7px)">
+                    <div class="icon-circle">
                     <img src="Images/css.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-12px)">
+                    <div class="icon-circle">
                     <img src="Images/js.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-17px)">
+                    <div class="icon-circle">
                     <img src="Images/github.png" alt="">
                     </div>
                 </div>
@@ -88,12 +91,12 @@
             </a>
             </li>
             <li class="project-card">
-            <a href="#"
+            <a href="https://erroneous-user.github.io/Modern-Sign-In-Sign-up-System-in-PHP/"
                 target="_blank"
                 class="project-link">
                 <span class="card-bg-gradient"></span>
-                <div class="card-image" id="videoContainer">
-                    <video id="hoverVideo" width="400" loop muted>
+                <div class="card-image">
+                    <video loop muted>
                         <source src="Video/php.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -103,16 +106,16 @@
                 <br>
                 <span class="card-desc">This project is a modern, secure sign-in/sign-up system built using PHP and MySQL.</span>
                 <div class="card-icons">
-                    <div class="icon-circle" style="transform:translateX(-2px)">
+                    <div class="icon-circle">
                     <img src="Images/html.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-7px)">
+                    <div class="icon-circle">
                     <img src="Images/css.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-12px)">
+                    <div class="icon-circle">
                     <img src="Images/js.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-17px)">
+                    <div class="icon-circle">
                     <img src="Images/php.png" alt="">
                     </div>
                 </div>
@@ -123,12 +126,12 @@
                 </div>
             </a>
             </li><li class="project-card">
-            <a href="#"
+            <a href="https://erroneous-user.github.io/calcy/"
                 target="_blank"
                 class="project-link">
                 <span class="card-bg-gradient"></span>
                 <div class="card-image">
-                    <video id="hoverVideo" width="400" loop muted>
+                    <video loop muted>
                         <source src="Video/Calcy.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -138,16 +141,16 @@
                 <br>
                 <span class="card-desc">Name is pretty much self explainatory</span>
                 <div class="card-icons">
-                    <div class="icon-circle" style="transform:translateX(-2px)">
+                    <div class="icon-circle">
                     <img src="Images/html.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-7px)">
+                    <div class="icon-circle">
                     <img src="Images/css.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-12px)">
+                    <div class="icon-circle">
                     <img src="Images/js.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-17px)">
+                    <div class="icon-circle">
                     <img src="Images/github.png" alt="">
                     </div>
                 </div>
@@ -158,12 +161,12 @@
                 </div>
             </a>
             </li><li class="project-card">
-            <a href="#"
+            <a href="https://github.com/Erroneous-User/Wallery"
                 target="_blank"
                 class="project-link">
                 <span class="card-bg-gradient"></span>
                 <div class="card-image">
-                    <video id="hoverVideo" width="400" loop muted>
+                    <video loop muted>
                         <source src="Video/wallery.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -173,10 +176,10 @@
                 <br>
                 <span class="card-desc">Wallery is a Windows console application that automatically changes your desktop wallpaper based on the current battery percentage.</span>
                 <div class="card-icons">
-                    <div class="icon-circle" style="transform:translateX(-2px)">
+                    <div class="icon-circle">
                     <img src="Images/visualstudio.png" alt="">
                     </div>
-                    <div class="icon-circle" style="transform:translateX(-7px)">
+                    <div class="icon-circle">
                     <img src="Images/c++.png" alt="">
                     </div>
                 </div>
@@ -203,9 +206,6 @@
                 <span class="stack-animate">an constantly expanding stack</span>
             </h2>
             </div>
-            <!-- <div class="stack-emoji">
-            <img src="/images/milky_way.png" alt="milky way emoji">
-            </div> -->
             <div class="stack-icon" style="background-image:url('Images/html.png')"></div>
             <div class="stack-icon" style="background-image:url('Images/css.png')"></div>
             <div class="stack-icon" style="background-image:url('Images/js.png')"></div>
@@ -219,15 +219,13 @@
             <h2>My Experience</h2>
         </div>
         <div class="experience-list">
-            <!-- Experience Item 1 -->
             <div class="experience-card">
             <div class="experience-card-header">
                 <span class="experience-title">
                 Fresher
                 <span class="experience-duration desktop-only">(Present)</span>
                 </span>
-                <!-- <span class="experience-company">Company</span> -->
-            </div>
+                </div>
             <div class="experience-card-body">
                 <div class="experience-skills">
                 <span class="skill-badge">
@@ -257,7 +255,6 @@
                 <li><span class="disc-marker">◉</span>Worked with WebDev in Front-end(HTML,CSS,JS) and back-end(PHP/SQL/MONGODB).</li>
                 <li><span class="disc-marker">◉</span>Created a Windows Programe in C++ using Visual Studio.</li>
                 <li><span class="disc-marker">◉</span>Maintains my very own GitHub Pages.</li>
-                <!-- <li><span class="disc-marker">◉</span>Write unit tests using Jest.</li> -->
                 </ul>
             </div>
             </div>
@@ -265,8 +262,7 @@
     </section>
     <section id="contact" class="contact-section">
         <div class="contact-grid">
-            <!-- Contact Form -->
-        <form class="contact-form" action="https://formspree.io/f/xnndkqbe" method="POST">
+            <form class="contact-form" action="https://formspree.io/f/xnndkqbe" method="POST">
     <div class="contact-form-header">
         <h2>Let's talk</h2>
         <h6>
@@ -301,12 +297,10 @@
     </fieldset>
     <button type="submit" class="contact-send-btn">
         <span>send message</span>
-        <span class="contact-send-icon"></span>
     </button>
         </form>
         </div>
     </section>
-
     <footer class="footer">
   <aside>
     <img src="Images/ErroneousUser.png" alt="ErroneousUser" width="50" height="50" class="footer-logo">
@@ -329,9 +323,6 @@
     </div>
     </nav>
     </footer>
-    
-
-
 </body>
 <script src="script.js"></script>
-</html> 
+</html>
