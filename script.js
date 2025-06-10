@@ -22,12 +22,6 @@ navbarMenu.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
-// Optional: Pause/play videos on hover for project cards
-document.querySelectorAll('.project-card video').forEach(video => {
-  video.parentElement.addEventListener('mouseenter', () => video.play());
-  video.parentElement.addEventListener('mouseleave', () => video.pause());
-});
-
 // Magic background for navbar links
 const links = navLinks.querySelectorAll('a'); // Get all anchor tags within navLinks
 
@@ -49,4 +43,10 @@ links.forEach(link => {
   link.addEventListener('mouseleave', () => {
     magicBg.style.opacity = 0;
   });
+});
+
+// Optional: Pause/play videos on hover for project cards
+document.querySelectorAll('.project-card video').forEach(video => {
+  video.parentElement.addEventListener('mouseenter', () => video.play());
+  video.parentElement.addEventListener('mouseleave', () => video.pause());
 });
