@@ -343,6 +343,12 @@ body::before {
     height: 100%;
     object-fit: cover;
 }
+.potrait video{
+  height: unset; /* Ensure video takes full height */
+  width: unset; /* Ensure video takes full width */
+  object-fit: cover;
+  max-height: 12rem;
+}
 .card-content {
   margin-top: 1.2rem;
   position: relative;
